@@ -30,7 +30,7 @@ export default function CompanyProfile() {
               THE BARBER
             </h1>
 
-            <div className="space-x-6 text-sm">
+            <div className="hidden md:flex space-x-6 text-sm">
               <a href="#home" className="hover:text-amber-400 transition">
                 Home
               </a>
