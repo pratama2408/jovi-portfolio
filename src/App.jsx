@@ -14,12 +14,10 @@ function App() {
           CRUD App
         </Link>
       </nav>
-      <BrowserRouter>
       <Routes>
         <Route path="/" element={<CompanyProfile />} />
         <Route path="/crud" element={<CrudApp />} />
       </Routes>
-    </BrowserRouter>
     </div>
   );
 }
