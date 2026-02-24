@@ -4,6 +4,7 @@ import { useState } from "react";
 export default function CompanyProfile() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <>
       {/* LIGHTBOX */}
@@ -21,7 +22,7 @@ export default function CompanyProfile() {
 
       <div className="bg-black text-white scroll-smooth font-[Poppins]">
         {/* NAVBAR */}
-        <nav className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-lg border-b border-white/10 shadow-lg">
+        <nav className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-lg border-b border-white/10">
           <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
             {/* LOGO */}
             <h1
@@ -33,19 +34,19 @@ export default function CompanyProfile() {
 
             {/* DESKTOP MENU */}
             <div className="hidden md:flex space-x-6 text-sm">
-              <a href="#home" className="hover:text-amber-400 transition">
+              <a href="#home" className="hover:text-amber-400">
                 Home
               </a>
-              <a href="#about" className="hover:text-amber-400 transition">
+              <a href="#about" className="hover:text-amber-400">
                 About
               </a>
-              <a href="#services" className="hover:text-amber-400 transition">
+              <a href="#services" className="hover:text-amber-400">
                 Services
               </a>
-              <a href="#gallery" className="hover:text-amber-400 transition">
+              <a href="#gallery" className="hover:text-amber-400">
                 Gallery
               </a>
-              <a href="#contact" className="hover:text-amber-400 transition">
+              <a href="#contact" className="hover:text-amber-400">
                 Contact
               </a>
             </div>
@@ -53,28 +54,48 @@ export default function CompanyProfile() {
             {/* HAMBURGER BUTTON */}
             <button
               className="md:hidden text-white text-2xl"
-              onClick={() => setOpen(!open)}
+              onClick={() => setIsOpen(!isOpen)}
             >
               ☰
             </button>
           </div>
 
           {/* MOBILE MENU */}
-          {open && (
-            <div className="md:hidden bg-black/95 backdrop-blur-md px-6 pb-6 space-y-4 text-sm border-t border-white/10 animate-fadeIn">
-              <a href="#home" onClick={() => setOpen(false)}>
+          {isOpen && (
+            <div className="md:hidden bg-black border-t border-white/10 px-6 py-4 space-y-4 text-center">
+              <a
+                href="#home"
+                onClick={() => setIsOpen(false)}
+                className="block hover:text-amber-400"
+              >
                 Home
               </a>
-              <a href="#about" onClick={() => setOpen(false)}>
+              <a
+                href="#about"
+                onClick={() => setIsOpen(false)}
+                className="block hover:text-amber-400"
+              >
                 About
               </a>
-              <a href="#services" onClick={() => setOpen(false)}>
+              <a
+                href="#services"
+                onClick={() => setIsOpen(false)}
+                className="block hover:text-amber-400"
+              >
                 Services
               </a>
-              <a href="#gallery" onClick={() => setOpen(false)}>
+              <a
+                href="#gallery"
+                onClick={() => setIsOpen(false)}
+                className="block hover:text-amber-400"
+              >
                 Gallery
               </a>
-              <a href="#contact" onClick={() => setOpen(false)}>
+              <a
+                href="#contact"
+                onClick={() => setIsOpen(false)}
+                className="block hover:text-amber-400"
+              >
                 Contact
               </a>
             </div>
@@ -82,10 +103,7 @@ export default function CompanyProfile() {
         </nav>
         {/* HERO */}
         <section id="home" className="relative h-screen">
-          <img
-            src="/barber.jpg"
-            className="w-full h-full object-cover scale-105"
-          />
+          <img src="/barber.jpg" className="w-full h-full object-cover" />
 
           <div className="absolute inset-0 bg-black/80"></div>
 
