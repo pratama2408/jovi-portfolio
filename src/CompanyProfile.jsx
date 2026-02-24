@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export default function CompanyProfile() {
   const [selectedImage, setSelectedImage] = useState(null);
-
+  const [open, setOpen] = useState(false);
   return (
     <>
       {/* LIGHTBOX */}
@@ -23,6 +23,7 @@ export default function CompanyProfile() {
         {/* NAVBAR */}
         <nav className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-lg border-b border-white/10 shadow-lg">
           <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            {/* LOGO */}
             <h1
               className="text-xl tracking-widest text-amber-400"
               style={{ fontFamily: "Playfair Display" }}
@@ -30,6 +31,7 @@ export default function CompanyProfile() {
               THE BARBER
             </h1>
 
+            {/* DESKTOP MENU */}
             <div className="hidden md:flex space-x-6 text-sm">
               <a href="#home" className="hover:text-amber-400 transition">
                 Home
@@ -47,9 +49,37 @@ export default function CompanyProfile() {
                 Contact
               </a>
             </div>
-          </div>
-        </nav>
 
+            {/* HAMBURGER BUTTON */}
+            <button
+              className="md:hidden text-white text-2xl"
+              onClick={() => setOpen(!open)}
+            >
+              ☰
+            </button>
+          </div>
+
+          {/* MOBILE MENU */}
+          {open && (
+            <div className="md:hidden bg-black/95 backdrop-blur-md px-6 pb-6 space-y-4 text-sm border-t border-white/10 animate-fadeIn">
+              <a href="#home" onClick={() => setOpen(false)}>
+                Home
+              </a>
+              <a href="#about" onClick={() => setOpen(false)}>
+                About
+              </a>
+              <a href="#services" onClick={() => setOpen(false)}>
+                Services
+              </a>
+              <a href="#gallery" onClick={() => setOpen(false)}>
+                Gallery
+              </a>
+              <a href="#contact" onClick={() => setOpen(false)}>
+                Contact
+              </a>
+            </div>
+          )}
+        </nav>
         {/* HERO */}
         <section id="home" className="relative h-screen">
           <img
