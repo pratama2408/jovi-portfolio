@@ -96,7 +96,7 @@ export default function CompanyProfile() {
               className="mt-8 bg-amber-500 text-black px-8 py-3 rounded-full 
               hover:scale-105 hover:bg-amber-400 transition shadow-lg font-semibold tracking-wide"
             >
-              Booking Sekarang
+              Booking Now
             </a>
           </div>
         </section>
