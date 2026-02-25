@@ -3,7 +3,6 @@ import { useState } from "react";
 
 export default function CompanyProfile() {
   const [selectedImage, setSelectedImage] = useState(null);
-  const [open, setOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
@@ -24,34 +23,20 @@ export default function CompanyProfile() {
         {/* NAVBAR */}
         <nav className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-lg border-b border-white/10">
           <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            {/* LOGO */}
-            <h1
-              className="text-xl tracking-widest text-amber-400"
-              style={{ fontFamily: "Playfair Display" }}
-            >
+            <h1 className="text-xl tracking-widest text-amber-400">
               THE BARBER
             </h1>
 
-            {/* DESKTOP MENU */}
+            {/* Desktop */}
             <div className="hidden md:flex space-x-6 text-sm">
-              <a href="#home" className="hover:text-amber-400">
-                Home
-              </a>
-              <a href="#about" className="hover:text-amber-400">
-                About
-              </a>
-              <a href="#services" className="hover:text-amber-400">
-                Services
-              </a>
-              <a href="#gallery" className="hover:text-amber-400">
-                Gallery
-              </a>
-              <a href="#contact" className="hover:text-amber-400">
-                Contact
-              </a>
+              <a href="#home">Home</a>
+              <a href="#about">About</a>
+              <a href="#services">Services</a>
+              <a href="#gallery">Gallery</a>
+              <a href="#contact">Contact</a>
             </div>
 
-            {/* HAMBURGER BUTTON */}
+            {/* Hamburger */}
             <button
               className="md:hidden text-white text-2xl"
               onClick={() => setIsOpen(!isOpen)}
@@ -60,42 +45,22 @@ export default function CompanyProfile() {
             </button>
           </div>
 
-          {/* MOBILE MENU */}
+          {/* Mobile Menu */}
           {isOpen && (
             <div className="md:hidden bg-black border-t border-white/10 px-6 py-4 space-y-4 text-center">
-              <a
-                href="#home"
-                onClick={() => setIsOpen(false)}
-                className="block hover:text-amber-400"
-              >
+              <a href="#home" onClick={() => setIsOpen(false)}>
                 Home
               </a>
-              <a
-                href="#about"
-                onClick={() => setIsOpen(false)}
-                className="block hover:text-amber-400"
-              >
+              <a href="#about" onClick={() => setIsOpen(false)}>
                 About
               </a>
-              <a
-                href="#services"
-                onClick={() => setIsOpen(false)}
-                className="block hover:text-amber-400"
-              >
+              <a href="#services" onClick={() => setIsOpen(false)}>
                 Services
               </a>
-              <a
-                href="#gallery"
-                onClick={() => setIsOpen(false)}
-                className="block hover:text-amber-400"
-              >
+              <a href="#gallery" onClick={() => setIsOpen(false)}>
                 Gallery
               </a>
-              <a
-                href="#contact"
-                onClick={() => setIsOpen(false)}
-                className="block hover:text-amber-400"
-              >
+              <a href="#contact" onClick={() => setIsOpen(false)}>
                 Contact
               </a>
             </div>
@@ -149,13 +114,13 @@ export default function CompanyProfile() {
             bg-clip-text text-transparent"
             style={{ fontFamily: "Playfair Display" }}
           >
-            Tentang Kami
+            About
           </motion.h2>
 
           <p className="text-gray-400 leading-relaxed text-lg">
-            The Barber menghadirkan pengalaman grooming premium dengan standar
-            profesional. Kami mengutamakan kualitas, kenyamanan, dan detail
-            untuk memberikan hasil terbaik.
+            The Barber offers a premium grooming experience with professional
+            standards. We prioritize quality, comfort, and attention to detail
+            to deliver the best results.
           </p>
         </section>
 
@@ -167,29 +132,27 @@ export default function CompanyProfile() {
             bg-clip-text text-transparent"
             style={{ fontFamily: "Playfair Display" }}
           >
-            Layanan Kami
+            Services
           </h2>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {["Potong Rambut", "Cukur Jenggot", "Hair Styling"].map(
-              (item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.2 }}
-                  className="bg-white/5 backdrop-blur-lg p-6 rounded-xl border border-white/10 
+            {["Haircut", "Beard Shaving", "Hair Styling"].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.2 }}
+                className="bg-white/5 backdrop-blur-lg p-6 rounded-xl border border-white/10 
                 hover:scale-105 hover:shadow-2xl hover:border-amber-400/40 transition"
-                >
-                  <h3 className="text-xl text-amber-300 mb-2 font-semibold">
-                    {item}
-                  </h3>
-                  <p className="text-gray-400">
-                    Layanan profesional dengan hasil maksimal
-                  </p>
-                </motion.div>
-              ),
-            )}
+              >
+                <h3 className="text-xl text-amber-300 mb-2 font-semibold">
+                  {item}
+                </h3>
+                <p className="text-gray-400">
+                  Professional service with maximum results
+                </p>
+              </motion.div>
+            ))}
           </div>
         </section>
 
